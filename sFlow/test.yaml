@@ -4,15 +4,27 @@ topology:
     leaf1:
       kind: linux
       image: sflow/frr
+      binds:
+        - daemons:/etc/frr/daemons
+        - leaf1.conf:/etc/frr/frr.conf
     leaf2:
       kind: linux
       image: sflow/frr
+      binds:
+        - daemons:/etc/frr/daemons
+        - leaf2.conf:/etc/frr/frr.conf
     spine1:
       kind: linux
       image: sflow/frr
+      binds:
+        - daemons:/etc/frr/daemons
+        - spine1.conf:/etc/frr/frr.conf
     spine2:
       kind: linux
       image: sflow/frr
+      binds:
+        - daemons:/etc/frr/daemons
+        - spine2.conf:/etc/frr/frr.conf
     h1:
       kind: linux
       image: alpine:latest
