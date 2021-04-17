@@ -1,0 +1,28 @@
+name: test
+topology:
+  nodes:
+    leaf1:
+      kind: linux
+      image: sflow/frr
+    leaf2:
+      kind: linux
+      image: sflow/frr
+    spine1:
+      kind: linux
+      image: sflow/frr
+    spine2:
+      kind: linux
+      image: sflow/frr
+    h1:
+      kind: linux
+      image: alpine:latest
+    h2:
+      kind: linux
+      image: alpine:latest
+  links: 
+    - endpoints: ["leaf1:eth1","spine1:eth1"]
+    - endpoints: ["leaf1:eth2","spine2:eth1"]
+    - endpoints: ["leaf2:eth1","spine1:eth2"]
+    - endpoints: ["leaf2:eth2","spine2:eth2"]
+    - endpoints: ["h1:eth1","leaf1:eth3"]
+    - endpoints: ["h2:eth1","leaf2:eth3"]
