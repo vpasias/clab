@@ -14,15 +14,8 @@ RUN apt update -y && apt-get install -y git vim net-tools wget curl bash-complet
 
 RUN apt-get install python3-cffi python3-pycparser -y
 
-RUN git clone https://gitlab.com/flexiwangroup/flexirouter.git && cd /unf/flexirouter && git checkout ad7e8c26a1d7d08e1d3eda40784d1c7d418565e6 && \
-    git clone https://gitlab.com/flexiwangroup/flexiroutervpp.git vpp && cd vpp && git checkout 711f6d63f073f2285e4bae4cab09feaca23438c2 && \
-    cd /unf/flexirouter && git clone https://gitlab.com/flexiwangroup/flexiroutersb.git vppsb && cd vppsb && \
-    git checkout cf96cfe4d5e335600aedc19ce16b099f86fc7e0a && cd /unf/flexirouter && \
-    cp /unf/flexirouter/scripts/prepare.sh /unf/flexirouter && cp /unf/flexirouter/scripts/vpp_build.sh /unf/flexirouter && \
-    cp /unf/flexirouter/scripts/vpp_install.sh /unf/flexirouter && \
-    cp /unf/flexirouter/scripts/vpp_build_and_install.sh /unf/flexirouter && \
-    sed -i 's/install-ext-deps/UNATTENDED=yes install-ext-deps/' prepare.sh && sed -i 's/install-dep/UNATTENDED=yes install-dep/' prepare.sh && \
-    ./prepare.sh && ./vpp_build_and_install.sh && cd /unf/flexirouter/vpp && make pkg-deb && dpkg -i /unf/flexirouter/vpp/build-root/*.deb
+RUN curl -sL https://deb.flexiwan.com/setup | bash -
+RUN apt update -y && apt-get install -y flexiwan-router
 
 RUN apt-get update -y
 
