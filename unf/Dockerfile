@@ -10,7 +10,7 @@ ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=DontWarn
 
 # Use bash shell
 
-RUN apt update -y && apt-get install -y git vim net-tools wget curl bash-completion apt-utils base-files ifupdown rsyslog tcpdump gnupg2 iproute2 socat telnet libc-ares2 libjson-c3 python-ipaddr python3-jinja2 python3-cffi python3-pycparser libbpfcc-dev lsb-release
+RUN apt update -y && apt-get install -y git vim net-tools wget curl bash-completion apt-utils base-files rsyslog tcpdump gnupg2 iproute2 socat telnet libc-ares2 libjson-c3 python-ipaddr python3-jinja2 python3-cffi python3-pycparser libbpfcc-dev lsb-release
 
 RUN apt-get install python3-cffi python3-pycparser -y
 
