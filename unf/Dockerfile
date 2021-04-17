@@ -1,14 +1,8 @@
-FROM flexiwan-aws:latest
-
-WORKDIR /unf
-
-SHELL ["/bin/bash", "-c"]
+FROM nfvri/dpdk-ubuntu-testpmd:v21.02
 
 ARG DEBIAN_FRONTEND=noninteractive
 
 ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=DontWarn
-
-# Use bash shell
 
 RUN apt-get update && \
     apt-get install -y libpcre3-dev apt-transport-https ca-certificates curl wget logrotate \
