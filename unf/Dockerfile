@@ -1,4 +1,4 @@
-FROM icnteam/vswitch:amd64
+FROM icnteam/vrouter:latest
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=DontWarn
