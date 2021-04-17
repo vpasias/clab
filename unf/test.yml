@@ -3,32 +3,36 @@ topology:
   nodes:
     leaf1:
       kind: linux
-      image: icnteam/vrouter:latest
-      #image: unf:latest
+      #image: icnteam/vrouter:latest
+      image: unf:latest
+      cmd: vppctl enable tap-inject
       binds:
         - daemons:/etc/frr/daemons
         - vtysh.conf:/etc/frr/vtysh.conf
         - leaf1.conf:/etc/frr/frr.conf
     leaf2:
       kind: linux
-      image: icnteam/vrouter:latest
-      #image: unf:latest
+      #image: icnteam/vrouter:latest
+      image: unf:latest
+      cmd: vppctl enable tap-inject
       binds:
         - daemons:/etc/frr/daemons
         - vtysh.conf:/etc/frr/vtysh.conf
         - leaf2.conf:/etc/frr/frr.conf
     spine1:
       kind: linux
-      image: icnteam/vrouter:latest
-      #image: unf:latest
+      #image: icnteam/vrouter:latest
+      image: unf:latest
+      cmd: vppctl enable tap-inject
       binds:
         - daemons:/etc/frr/daemons
         - vtysh.conf:/etc/frr/vtysh.conf
         - spine1.conf:/etc/frr/frr.conf
     spine2:
       kind: linux
-      image: icnteam/vrouter:latest
-      #image: unf:latest
+      #image: icnteam/vrouter:latest
+      image: unf:latest
+      cmd: vppctl enable tap-inject
       binds:
         - daemons:/etc/frr/daemons
         - vtysh.conf:/etc/frr/vtysh.conf
