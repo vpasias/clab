@@ -1,4 +1,4 @@
-FROM icnteam/vrouter:latest
+FROM icnteam/vswitch:amd64
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=DontWarn
@@ -14,6 +14,3 @@ RUN echo deb https://deb.frrouting.org/frr $(lsb_release -s -c) frr-stable | tee
 RUN apt-get update && \
     apt-get install -y frr frr-pythontools && \
     rm -rf /var/lib/apt/lists/*
-
-ADD docker-start /usr/sbin/docker-start
-ENTRYPOINT ["/usr/sbin/docker-start"]
