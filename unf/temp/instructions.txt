@@ -1,0 +1,6 @@
+docker pull ghcr.io/pantheontech/stonework:latest
+docker images
+
+docker run -i -t stonework /bin/bash 
+
+INITIAL_LOGLVL=debug MICROSERVICE_LABEL=stonework ETCD_CONFIG= CNF_MGMT_SUBNET=127.0.0.1/8 ./root/stonework-gns3-startup.sh
