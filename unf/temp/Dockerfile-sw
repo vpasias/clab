@@ -1,15 +1,7 @@
-FROM stonework:latest
+FROM ghcr.io/pantheontech/stonework:latest
 
 WORKDIR /root
 
 SHELL ["/bin/bash", "-c"]
 
-ENV INITIAL_LOGLVL debug
-
-ENV MICROSERVICE_LABEL stonework
-
-ENV ETCD_CONFIG
-
-ENV CNF_MGMT_SUBNET 127.0.0.1/8
-
-CMD ["/root/stonework-gns3-startup.sh"]
+CMD ["INITIAL_LOGLVL=debug MICROSERVICE_LABEL=stonework ETCD_CONFIG= CNF_MGMT_SUBNET=127.0.0.1/8 ./stonework-gns3-startup.sh"]
